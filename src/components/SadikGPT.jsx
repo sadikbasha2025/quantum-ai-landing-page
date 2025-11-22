@@ -93,7 +93,7 @@ const SadikGPT = () => {
         if (pdfData && (input.toLowerCase().includes('cbahi') || input.toLowerCase().includes('accreditation') || input.toLowerCase().includes('standard'))) {
             const relevantPages = searchPDF(pdfData, input);
             if (relevantPages.length > 0) {
-                const contextText = relevantPages.map(p => `[Page ${ p.page }]: ${ p.text } `).join('\n\n');
+                const contextText = relevantPages.map(p => "[Page " + p.page + "]: " + p.text).join('\\n\\n');
                 systemContext = "\n\nCONTEXT FROM CBAHI PDF:\n" + contextText + "\n\nUse this context to answer the user's question about CBAHI.";
                 console.log("RAG Context Found:", relevantPages.length, "pages");
             }
@@ -215,8 +215,8 @@ return (
                                     <div key={idx} className={`flex ${ msg.role === 'user' ? 'justify-end' : 'justify-start' } `}>
                                         <div className={`max - w - [80 %] p - 3 rounded - 2xl ${
     msg.role === 'user'
-    ? 'bg-primary text-white rounded-tr-none'
-    : 'bg-white/10 text-gray-200 rounded-tl-none'
+        ? 'bg-primary text-white rounded-tr-none'
+        : 'bg-white/10 text-gray-200 rounded-tl-none'
 } `}>
                                             {msg.content}
                                         </div>
