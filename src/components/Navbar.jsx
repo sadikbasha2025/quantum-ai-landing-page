@@ -21,6 +21,7 @@ const Navbar = () => {
         { name: 'Environment', href: '#environment' },
         { name: 'Energy', href: '#energy' },
         { name: 'Economy', href: '#economy' },
+        { name: 'Resources', href: '#resources' },
     ];
 
     const [showContact, setShowContact] = useState(false);

@@ -14,6 +14,9 @@ import img3 from './assets/uploaded_image_2_1763790863882.jpg'; // Group/Event
 import img4 from './assets/uploaded_image_3_1763790863882.jpg'; // Building
 import img5 from './assets/uploaded_image_4_1763790863882.jpg'; // Car/Personal
 
+import SadikGPT from './components/SadikGPT';
+import Documents from './components/Documents';
+
 function App() {
     return (
         <div className="min-h-screen bg-dark text-white selection:bg-primary selection:text-white">
@@ -135,7 +138,9 @@ function App() {
                 </div>
             </section>
 
+            <Documents />
             <Footer />
+            <SadikGPT />
         </div>
     );
 }
