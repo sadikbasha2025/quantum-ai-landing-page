@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, Send, X, Bot, User, Key, Sparkles, FileText } from 'lucide-react';
-import { extractTextFromPDF, searchPDF } from '../utils/RagEngine';
+// Removed static import to prevent build crashes
+// import { extractTextFromPDF, searchPDF } from '../utils/RagEngine';
 
 const SadikGPT = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +17,7 @@ const SadikGPT = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [pdfData, setPdfData] = useState(null);
     const [isRagLoading, setIsRagLoading] = useState(false);
+    const [ragEngine, setRagEngine] = useState(null);
     const messagesEndRef = useRef(null);
 
     const scrollToBottom = () => {
@@ -26,16 +28,24 @@ const SadikGPT = () => {
         scrollToBottom();
     }, [messages]);
 
-    // Load PDF on mount
+    // Dynamically load RAG Engine and PDF
     useEffect(() => {
-        const loadPdf = async () => {
-            setIsRagLoading(true);
-            const data = await extractTextFromPDF('/NEW cbahi accreditation.pdf');
-            setPdfData(data);
-            setIsRagLoading(false);
-            console.log("PDF Loaded:", data.length, "pages");
+        const initRag = async () => {
+            try {
+                setIsRagLoading(true);
+                const engine = await import('../utils/RagEngine');
+                setRagEngine(engine);
+
+                const data = await engine.extractTextFromPDF('/NEW cbahi accreditation.pdf');
+                setPdfData(data);
+                console.log("PDF Loaded:", data.length, "pages");
+            } catch (error) {
+                console.error("Failed to initialize RAG:", error);
+            } finally {
+                setIsRagLoading(false);
+            }
         };
-        loadPdf();
+        initRag();
     }, []);
 
     const handleApiKeySubmit = (e) => {
@@ -89,8 +99,8 @@ const SadikGPT = () => {
 
         // RAG Logic
         let systemContext = "";
-        if (pdfData && (input.toLowerCase().includes('cbahi') || input.toLowerCase().includes('accreditation') || input.toLowerCase().includes('standard'))) {
-            const relevantPages = searchPDF(pdfData, input);
+        if (ragEngine && pdfData && (input.toLowerCase().includes('cbahi') || input.toLowerCase().includes('accreditation') || input.toLowerCase().includes('standard'))) {
+            const relevantPages = ragEngine.searchPDF(pdfData, input);
             if (relevantPages.length > 0) {
                 const contextText = relevantPages.map(p => "[Page " + p.page + "]: " + p.text).join('\\n\\n');
                 systemContext = "\n\nCONTEXT FROM CBAHI PDF:\n" + contextText + "\n\nUse this context to answer the user's question about CBAHI.";
@@ -213,8 +223,8 @@ const SadikGPT = () => {
                                     {messages.filter(m => m.role !== 'system').map((msg, idx) => (
                                         <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                                             <div className={`max-w-[80%] p-3 rounded-2xl ${msg.role === 'user'
-                                                    ? 'bg-primary text-white rounded-tr-none'
-                                                    : 'bg-white/10 text-gray-200 rounded-tl-none'
+                                                ? 'bg-primary text-white rounded-tr-none'
+                                                : 'bg-white/10 text-gray-200 rounded-tl-none'
                                                 }`}>
                                                 {msg.content}
                                             </div>
