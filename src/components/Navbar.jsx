@@ -35,11 +35,14 @@ const Navbar = () => {
                         animate={{ opacity: 1, x: 0 }}
                         className="flex items-center gap-3"
                     >
-                        {/* Placeholder for Logo if needed, using text for now as requested */}
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-purple-600 flex items-center justify-center text-white font-bold text-xl">
-                            Q
+                        import profileLogo from '../assets/profile_logo.jpg';
+
+                        // ... inside Navbar component ...
+
+                        <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/50">
+                            <img src={profileLogo} alt="Profile Logo" className="w-full h-full object-cover" />
                         </div>
-                        <span className="text-xl font-bold tracking-wider">
+                        <span className="text-2xl md:text-3xl font-bold tracking-wider">
                             QUANTUM <span className="text-primary">AI</span>
                         </span>
                     </motion.div>
