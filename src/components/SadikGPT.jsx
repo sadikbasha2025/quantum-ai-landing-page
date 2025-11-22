@@ -30,12 +30,14 @@ const SadikGPT = () => {
 
     // Dynamically load RAG Engine and PDF
     useEffect(() => {
+        // TEMPORARILY DISABLED TO FIX BLANK SCREEN
+        /*
         const initRag = async () => {
             try {
                 setIsRagLoading(true);
                 const engine = await import('../utils/RagEngine');
                 setRagEngine(engine);
-
+                
                 const data = await engine.extractTextFromPDF('/NEW cbahi accreditation.pdf');
                 setPdfData(data);
                 console.log("PDF Loaded:", data.length, "pages");
@@ -46,6 +48,7 @@ const SadikGPT = () => {
             }
         };
         initRag();
+        */
     }, []);
 
     const handleApiKeySubmit = (e) => {
@@ -223,8 +226,8 @@ const SadikGPT = () => {
                                     {messages.filter(m => m.role !== 'system').map((msg, idx) => (
                                         <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                                             <div className={`max-w-[80%] p-3 rounded-2xl ${msg.role === 'user'
-                                                ? 'bg-primary text-white rounded-tr-none'
-                                                : 'bg-white/10 text-gray-200 rounded-tl-none'
+                                                    ? 'bg-primary text-white rounded-tr-none'
+                                                    : 'bg-white/10 text-gray-200 rounded-tl-none'
                                                 }`}>
                                                 {msg.content}
                                             </div>
