@@ -24,7 +24,7 @@ function App() {
             <Navbar />
             <Hero />
             <Marquee />
-            <About profileImg={img1} carImg={img5} />
+            <About profileImg={img1} />
 
             <ContentSection
                 id="health"
