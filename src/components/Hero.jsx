@@ -25,8 +25,8 @@ const Hero = () => {
                         <span className="text-gradient">Saudi Vision 2030</span>
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto font-light">
-                        ELECTRONICS ENGINEER | R&D on Quantum Healthcare AI | Researcher
+                    <p className="text-xl md:text-2xl text-gray-400 mb-8 max-w-4xl mx-auto font-light leading-relaxed">
+                        Electronics Engineer | R&D on Quantum Healthcare AI | Researcher -RDIA-KSA | Biomedical Engineer in Central Lab & Blood Bank-Albaha
                     </p>
 
                     <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-16">
