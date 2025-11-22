@@ -17,6 +17,7 @@ import img6 from './assets/quantum_economy.png'; // Future Economy
 // ... (existing imports)
 
 import Documents from './components/Documents';
+import SadikGPT from './components/SadikGPT';
 
 function App() {
     // Fixed blank screen by removing undefined img5
