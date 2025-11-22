@@ -18,6 +18,7 @@ import img6 from './assets/quantum_economy.png'; // Future Economy
 
 import Documents from './components/Documents';
 import SadikGPT from './components/SadikGPT';
+import QuantumGameChanger from './components/QuantumGameChanger';
 
 function App() {
     // Fixed blank screen by removing undefined img5
@@ -102,7 +103,6 @@ function App() {
                 reverse={true}
             />
 
-            {/* New Quantum Concepts Section */}
             <section className="py-20 bg-black/80 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-dark to-dark z-0" />
                 <div className="container mx-auto px-6 relative z-10">
@@ -140,6 +140,8 @@ function App() {
                     </div>
                 </div>
             </section>
+
+            <QuantumGameChanger />
 
             <Documents />
             <Footer />
