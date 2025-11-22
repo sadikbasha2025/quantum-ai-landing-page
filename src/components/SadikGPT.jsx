@@ -5,6 +5,7 @@ import { MessageSquare, Send, X, Bot, User, Key, Sparkles, FileText } from 'luci
 // import { extractTextFromPDF, searchPDF } from '../utils/RagEngine';
 
 const SadikGPT = () => {
+    // Component fixed and RAG disabled for stability
     const [isOpen, setIsOpen] = useState(false);
     const [apiKey, setApiKey] = useState('');
     const [hasKey, setHasKey] = useState(false);
@@ -226,8 +227,8 @@ const SadikGPT = () => {
                                     {messages.filter(m => m.role !== 'system').map((msg, idx) => (
                                         <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                                             <div className={`max-w-[80%] p-3 rounded-2xl ${msg.role === 'user'
-                                                    ? 'bg-primary text-white rounded-tr-none'
-                                                    : 'bg-white/10 text-gray-200 rounded-tl-none'
+                                                ? 'bg-primary text-white rounded-tr-none'
+                                                : 'bg-white/10 text-gray-200 rounded-tl-none'
                                                 }`}>
                                                 {msg.content}
                                             </div>
