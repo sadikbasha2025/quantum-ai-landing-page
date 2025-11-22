@@ -31,11 +31,7 @@ const About = ({ profileImg, carImg }) => {
                         <h2 className="text-4xl font-bold mb-8">Who is <span className="text-primary">Sadik Basha S?</span></h2>
 
                         <div className="space-y-6 text-gray-300 leading-relaxed">
-                            <p>
-                                I am a passionate GenAI Architect and Content Creator dedicated to making Artificial Intelligence
-                                accessible to the All community and beyond, Especially doing R&D on Quantum AI in healthcare
-                                as a Registered Researcher on RDIA-KSA.
-                            </p>
+                            I am a seasoned Biomedical Engineer and Quantum AI Researcher, specializing in the synergistic integration of quantum-enhanced machine learning with biomedical applications to pioneer next-generation diagnostic, therapeutic, and neurotechnological solutions—driving translational innovation at the intersection of quantum computing, AI, and precision medicine.
                             <p>
                                 With a focus on Quantum Technologies, Quantum Biology, Quantum Physics with AI and how its going
                                 to change the future in evidence based medicine and complex problems into a simple solution with
