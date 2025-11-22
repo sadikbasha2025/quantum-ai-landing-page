@@ -38,7 +38,7 @@ const Navbar = () => {
                     >
 
 
-                        // ... inside Navbar component ...
+
 
                         <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/50">
                             <img src={profileLogo} alt="Profile Logo" className="w-full h-full object-cover" />
