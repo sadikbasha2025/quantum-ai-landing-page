@@ -12,9 +12,10 @@ import img1 from './assets/uploaded_image_0_1763790863882.jpg'; // Profile
 import img2 from './assets/uploaded_image_1_1763790863882.png'; // Atom/Quantum
 import img3 from './assets/uploaded_image_2_1763790863882.jpg'; // Group/Event
 import img4 from './assets/uploaded_image_3_1763790863882.jpg'; // Building
-import img5 from './assets/uploaded_image_4_1763790863882.jpg'; // Car/Personal
+import img6 from './assets/quantum_economy.png'; // Future Economy
 
-import SadikGPT from './components/SadikGPT';
+// ... (existing imports)
+
 import Documents from './components/Documents';
 
 function App() {
@@ -95,7 +96,7 @@ function App() {
                     { title: "Entrepreneurship", text: "Startups in biotech, logistics, and clean energy will flourish with AI-driven platforms and quantum-backed modeling." },
                     { title: "Artificial Superintelligence", text: "By leading Quantum AI research, Saudi Arabia positions itself as a global hub of innovation, attracting investments, talent, and partnerships." }
                 ]}
-                image={null}
+                image={img6}
                 reverse={true}
             />
 
