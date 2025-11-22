@@ -5,32 +5,44 @@ import { FileText, Download, File } from 'lucide-react';
 const Documents = () => {
     const documents = [
         {
-            title: "Quantum AI in Healthcare.ppt",
-            type: "PPT",
-            size: "2.4 MB",
-            desc: "Presentation on the impact of Quantum Computing in modern medicine.",
-            icon: <FileText className="text-orange-500" size={40} />
-        },
-        {
-            title: "Sustainable Future Report.pdf",
+            title: "AI and Quantum AI in Advancing Saudi Vision 2030.pdf",
             type: "PDF",
-            size: "1.8 MB",
-            desc: "Detailed analysis of environmental sustainability goals for 2030.",
-            icon: <File className="text-red-500" size={40} />
-        },
-        {
-            title: "Quantum Algorithms Basics.pdf",
-            type: "PDF",
-            size: "3.1 MB",
-            desc: "Introduction to Superposition, Entanglement, and Interference.",
-            icon: <File className="text-blue-500" size={40} />
-        },
-        {
-            title: "Saudi Vision 2030 & AI.ppt",
-            type: "PPT",
-            size: "5.2 MB",
+            size: "1.0 MB",
             desc: "Strategic alignment of AI initiatives with national goals.",
-            icon: <FileText className="text-orange-500" size={40} />
+            icon: <File className="text-red-500" size={40} />,
+            path: "/AI and Quantum AI in Advancing Saudi Vision 2030.pdf"
+        },
+        {
+            title: "Quantum AI Healthcare.pdf",
+            type: "PDF",
+            size: "1.9 MB",
+            desc: "In-depth look at Quantum AI applications in modern healthcare.",
+            icon: <File className="text-blue-500" size={40} />,
+            path: "/Quantum_AI_Healthcare.pdf"
+        },
+        {
+            title: "Journey into the Quantum World.pptx",
+            type: "PPTX",
+            size: "27.6 MB",
+            desc: "A comprehensive presentation on the fundamentals of Quantum Computing.",
+            icon: <FileText className="text-orange-500" size={40} />,
+            path: "/Journey-into-the-Quantum-World.pptx"
+        },
+        {
+            title: "NEW cbahi accreditation.pdf",
+            type: "PDF",
+            size: "2.7 MB",
+            desc: "Latest accreditation standards and guidelines.",
+            icon: <File className="text-red-500" size={40} />,
+            path: "/NEW cbahi accreditation.pdf"
+        },
+        {
+            title: "Quantum AI Video Introduction",
+            type: "VIDEO",
+            size: "2.0 MB",
+            desc: "A brief video introduction to our Quantum AI initiatives.",
+            icon: <FileText className="text-purple-500" size={40} />, // Using FileText as generic, or could import Video icon
+            path: "/video.mp4"
         }
     ];
 
@@ -69,9 +81,13 @@ const Documents = () => {
                                 {doc.desc}
                             </p>
 
-                            <button className="w-full py-2 flex items-center justify-center gap-2 bg-white/5 hover:bg-primary hover:text-white rounded-lg transition-all text-sm font-medium text-gray-300">
+                            <a
+                                href={doc.path}
+                                download
+                                className="w-full py-2 flex items-center justify-center gap-2 bg-white/5 hover:bg-primary hover:text-white rounded-lg transition-all text-sm font-medium text-gray-300"
+                            >
                                 <Download size={16} /> Download ({doc.size})
-                            </button>
+                            </a>
                         </motion.div>
                     ))}
                 </div>
