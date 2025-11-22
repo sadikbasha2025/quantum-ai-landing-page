@@ -19,6 +19,7 @@ import img6 from './assets/quantum_economy.png'; // Future Economy
 import Documents from './components/Documents';
 
 function App() {
+    // Fixed blank screen by removing undefined img5
     return (
         <div className="min-h-screen bg-dark text-white selection:bg-primary selection:text-white">
             <Navbar />
